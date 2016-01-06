@@ -44,6 +44,11 @@ We want to draw an arbitrary table, for instance:
     +=====+=====+===========+
 
 <style>
+  table.algo-step {
+     border-spacing: 0;
+     border-collapse: separate;
+  }
+
   table.graph-table tbody tr td {
     width: 60px;
     border: 1px solid black;
@@ -55,32 +60,36 @@ We want to draw an arbitrary table, for instance:
     height: 60px;
   }
 
-  table.algo-step tbody tr td {
-    width: 50px;
+  table.algo-step tbody {
     border: 1px dashed black;
   }
 
-  table.algo-step tbody {
+  table.algo-step tbody tr td {
+    width: 50px;
     border: 1px dashed black;
+    padding: 0px;
+    text-align: center;
+    border-top: 0;
+    border-left: 0;
   }
 
   table.algo-step tbody tr {
     height: 50px;
   }
 
-  table.algo-step tbody tr.ch-up {
+  table.algo-step tbody tr.ch-up td {
     border-top: 2px solid black;
   }
 
-  table.algo-step tbody tr.ch-left {
+  table.algo-step tbody tr td.ch-left {
     border-left: 2px solid black;
   }
 
-  table.table-highlight tbody tr.ch-up {
+  table.table-highlight tbody tr.ch-up td {
     border-top: 2px solid orange;
   }
 
-  table.table-highlight tbody tr.ch-left {
+  table.table-highlight tbody tr td.ch-left {
     border-left: 2px solid orange;
   }
 
@@ -194,291 +203,291 @@ the cells using the above order:
 
 Here is a step-by-step visualisation of the process for the above table:
 
-<div class='threecol'>
-  <table class='graph-table algo-step table-highlight'>
+<div class="threecol">
+  <table class="algo-step table-highlight">
     <caption>Step 1</caption>
     <tbody>
-      <tr class='ch-up ch-left'>
-        <td></td>
+      <tr class="ch-up">
+        <td class="ch-left"></td>
         <td></td>
         <td></td>
         <td></td>
       </tr>
-      <tr class='ch-left'>
-        <td></td>
+      <tr>
+        <td class="ch-left"></td>
         <td colspan="3"></td>
       </tr>
-      <tr class='ch-left'>
-        <td></td>
+      <tr>
+        <td class="ch-left"></td>
         <td rowspan="2"></td>
         <td rowspan="2" colspan="2"></td>
       </tr>
-      <tr class='ch-left'>
-        <td></td>
+      <tr>
+        <td class="ch-left"></td>
       </tr>
     </tbody>
   </table><br>
 
-  <table class='graph-table algo-step'>
+  <table class="algo-step">
     <caption>Step 4</caption>
     <tbody>
-      <tr class='ch-up ch-left'>
-        <td class='cell-normal'>A</td>
-        <td class='cell-normal'>B</td>
-        <td class='cell-highlight'>C</td>
+      <tr class="ch-up">
+        <td class="ch-left cell-normal">A</td>
+        <td class="cell-normal">B</td>
+        <td class="cell-highlight">C</td>
         <td></td>
       </tr>
-      <tr class='ch-left'>
-        <td></td>
+      <tr>
+        <td class="ch-left"></td>
         <td colspan="3"></td>
       </tr>
-      <tr class='ch-left'>
-        <td></td>
+      <tr>
+        <td class="ch-left"></td>
         <td rowspan="2"></td>
         <td rowspan="2" colspan="2"></td>
       </tr>
-      <tr class='ch-left'>
-        <td></td>
+      <tr>
+        <td class="ch-left"></td>
       </tr>
     </tbody>
   </table><br>
 
-  <table class='graph-table algo-step'>
+  <table class="algo-step">
     <caption>Step 7</caption>
     <tbody>
-      <tr class='ch-up ch-left'>
-        <td class='cell-normal'>A</td>
-        <td class='cell-normal'>B</td>
-        <td class='cell-normal'>C</td>
-        <td class='cell-normal'>D</td>
+      <tr class="ch-up">
+        <td class="ch-left cell-normal">A</td>
+        <td class="cell-normal">B</td>
+        <td class="cell-normal">C</td>
+        <td class="cell-normal">D</td>
       </tr>
-      <tr class='ch-left'>
-        <td class='cell-normal'>E</td>
-        <td class='cell-highlight' colspan="3">F</td>
+      <tr>
+        <td class="ch-left cell-normal">E</td>
+        <td class="cell-highlight" colspan="3">F</td>
       </tr>
-      <tr class='ch-left'>
-        <td></td>
+      <tr>
+        <td class="ch-left"></td>
         <td rowspan="2"></td>
         <td rowspan="2" colspan="2"></td>
       </tr>
-      <tr class='ch-left'>
-        <td></td>
+      <tr>
+        <td class="ch-left"></td>
       </tr>
     </tbody>
   </table><br>
 
-  <table class='graph-table algo-step'>
+  <table class="algo-step">
     <caption>Step 10</caption>
     <tbody>
-      <tr class='ch-up ch-left'>
-        <td class='cell-normal'>A</td>
-        <td class='cell-normal'>B</td>
-        <td class='cell-normal'>C</td>
-        <td class='cell-normal'>D</td>
+      <tr class="ch-up">
+        <td class="ch-left cell-normal">A</td>
+        <td class="cell-normal">B</td>
+        <td class="cell-normal">C</td>
+        <td class="cell-normal">D</td>
       </tr>
-      <tr class='ch-left'>
-        <td class='cell-normal'>E</td>
-        <td class='cell-normal' colspan="3">F</td>
+      <tr>
+        <td class="ch-left cell-normal">E</td>
+        <td class="cell-normal" colspan="3">F</td>
       </tr>
-      <tr class='ch-left'>
-        <td class='cell-normal'>G</td>
-        <td class='cell-normal' rowspan="2">I</td>
-        <td class='cell-highlight' rowspan="2" colspan="2">J</td>
+      <tr>
+        <td class="ch-left cell-normal">G</td>
+        <td class="cell-normal" rowspan="2">I</td>
+        <td class="cell-highlight" rowspan="2" colspan="2">J</td>
       </tr>
-      <tr class='ch-left'>
-        <td></td>
+      <tr>
+        <td class="ch-left"></td>
       </tr>
     </tbody>
   </table><br>
 
-  <table class='graph-table algo-step'>
+  <table class="algo-step">
     <caption>Step 2</caption>
     <tbody>
-      <tr class='ch-up ch-left'>
-        <td class='cell-highlight'>A</td>
+      <tr class="ch-up">
+        <td class="ch-left cell-highlight">A</td>
         <td></td>
         <td></td>
         <td></td>
       </tr>
-      <tr class='ch-left'>
-        <td></td>
+      <tr>
+        <td class="ch-left"></td>
         <td colspan="3"></td>
       </tr>
-      <tr class='ch-left'>
-        <td></td>
+      <tr>
+        <td class="ch-left"></td>
         <td rowspan="2"></td>
         <td rowspan="2" colspan="2"></td>
       </tr>
-      <tr class='ch-left'>
-        <td></td>
+      <tr>
+        <td class="ch-left"></td>
       </tr>
     </tbody>
   </table><br>
 
-  <table class='graph-table algo-step'>
+  <table class="algo-step">
     <caption>Step 5</caption>
     <tbody>
-      <tr class='ch-up ch-left'>
-        <td class='cell-normal'>A</td>
-        <td class='cell-normal'>B</td>
-        <td class='cell-normal'>C</td>
-        <td class='cell-highlight'>D</td>
+      <tr class="ch-up">
+        <td class="ch-left cell-normal">A</td>
+        <td class="cell-normal">B</td>
+        <td class="cell-normal">C</td>
+        <td class="cell-highlight">D</td>
       </tr>
-      <tr class='ch-left'>
-        <td></td>
+      <tr>
+        <td class="ch-left"></td>
         <td colspan="3"></td>
       </tr>
-      <tr class='ch-left'>
-        <td></td>
+      <tr>
+        <td class="ch-left"></td>
         <td rowspan="2"></td>
         <td rowspan="2" colspan="2"></td>
       </tr>
-      <tr class='ch-left'>
-        <td></td>
+      <tr>
+        <td class="ch-left"></td>
       </tr>
     </tbody>
   </table><br>
 
-  <table class='graph-table algo-step'>
+  <table class="algo-step">
     <caption>Step 8</caption>
     <tbody>
-      <tr class='ch-up ch-left'>
-        <td class='cell-normal'>A</td>
-        <td class='cell-normal'>B</td>
-        <td class='cell-normal'>C</td>
-        <td class='cell-normal'>D</td>
+      <tr class="ch-up">
+        <td class="ch-left cell-normal">A</td>
+        <td class="cell-normal">B</td>
+        <td class="cell-normal">C</td>
+        <td class="cell-normal">D</td>
       </tr>
-      <tr class='ch-left'>
-        <td class='cell-normal'>E</td>
-        <td class='cell-normal' colspan="3">F</td>
+      <tr>
+        <td class="ch-left cell-normal">E</td>
+        <td class="cell-normal" colspan="3">F</td>
       </tr>
-      <tr class='ch-left'>
-        <td class='cell-highlight'>G</td>
+      <tr>
+        <td class="ch-left cell-highlight">G</td>
         <td rowspan="2"></td>
         <td rowspan="2" colspan="2"></td>
       </tr>
-      <tr class='ch-left'>
-        <td></td>
+      <tr>
+        <td class="ch-left"></td>
       </tr>
     </tbody>
   </table><br>
 
-  <table class='graph-table algo-step'>
+  <table class="algo-step">
     <caption>Step 11</caption>
     <tbody>
-      <tr class='ch-up ch-left'>
-        <td class='cell-normal'>A</td>
-        <td class='cell-normal'>B</td>
-        <td class='cell-normal'>C</td>
-        <td class='cell-normal'>D</td>
+      <tr class="ch-up">
+        <td class="ch-left cell-normal">A</td>
+        <td class="cell-normal">B</td>
+        <td class="cell-normal">C</td>
+        <td class="cell-normal">D</td>
       </tr>
-      <tr class='ch-left'>
-        <td class='cell-normal'>E</td>
-        <td class='cell-normal' colspan="3">F</td>
+      <tr>
+        <td class="ch-left cell-normal">E</td>
+        <td class="cell-normal" colspan="3">F</td>
       </tr>
-      <tr class='ch-left'>
-        <td class='cell-normal'>G</td>
-        <td class='cell-normal' rowspan="2">I</td>
-        <td class='cell-normal' rowspan="2" colspan="2">J</td>
+      <tr>
+        <td class="ch-left cell-normal">G</td>
+        <td class="cell-normal" rowspan="2">I</td>
+        <td class="cell-normal" rowspan="2" colspan="2">J</td>
       </tr>
-      <tr class='ch-left'>
-        <td class='cell-highlight'>H</td>
+      <tr>
+        <td class="ch-left cell-highlight">H</td>
       </tr>
     </tbody>
   </table><br>
 
-  <table class='graph-table algo-step'>
+  <table class="algo-step">
     <caption>Step 3</caption>
     <tbody>
-      <tr class='ch-up ch-left'>
-        <td class='cell-normal'>A</td>
-        <td class='cell-highlight'>B</td>
+      <tr class="ch-up">
+        <td class="ch-left cell-normal">A</td>
+        <td class="cell-highlight">B</td>
         <td></td>
         <td></td>
       </tr>
-      <tr class='ch-left'>
-        <td></td>
+      <tr>
+        <td class="ch-left"></td>
         <td colspan="3"></td>
       </tr>
-      <tr class='ch-left'>
-        <td></td>
+      <tr>
+        <td class="ch-left"></td>
         <td rowspan="2"></td>
         <td rowspan="2" colspan="2"></td>
       </tr>
-      <tr class='ch-left'>
-        <td></td>
+      <tr>
+        <td class="ch-left"></td>
       </tr>
     </tbody>
   </table><br>
 
-  <table class='graph-table algo-step'>
+  <table class="algo-step">
     <caption>Step 6</caption>
     <tbody>
-      <tr class='ch-up ch-left'>
-        <td class='cell-normal'>A</td>
-        <td class='cell-normal'>B</td>
-        <td class='cell-normal'>C</td>
-        <td class='cell-normal'>D</td>
+      <tr class="ch-up">
+        <td class="ch-left cell-normal">A</td>
+        <td class="cell-normal">B</td>
+        <td class="cell-normal">C</td>
+        <td class="cell-normal">D</td>
       </tr>
-      <tr class='ch-left'>
-        <td class='cell-highlight'>E</td>
+      <tr>
+        <td class="ch-left cell-highlight">E</td>
         <td colspan="3"></td>
       </tr>
-      <tr class='ch-left'>
-        <td></td>
+      <tr>
+        <td class="ch-left"></td>
         <td rowspan="2"></td>
         <td rowspan="2" colspan="2"></td>
       </tr>
-      <tr class='ch-left'>
-        <td></td>
+      <tr>
+        <td class="ch-left"></td>
       </tr>
     </tbody>
   </table><br>
 
-  <table class='graph-table algo-step'>
+  <table class="algo-step">
     <caption>Step 9</caption>
     <tbody>
-      <tr class='ch-up ch-left'>
-        <td class='cell-normal'>A</td>
-        <td class='cell-normal'>B</td>
-        <td class='cell-normal'>C</td>
-        <td class='cell-normal'>D</td>
+      <tr class="ch-up">
+        <td class="ch-left cell-normal">A</td>
+        <td class="cell-normal">B</td>
+        <td class="cell-normal">C</td>
+        <td class="cell-normal">D</td>
       </tr>
-      <tr class='ch-left'>
-        <td class='cell-normal'>E</td>
-        <td class='cell-normal' colspan="3">F</td>
+      <tr>
+        <td class="ch-left cell-normal">E</td>
+        <td class="cell-normal" colspan="3">F</td>
       </tr>
-      <tr class='ch-left'>
-        <td class='cell-normal'>G</td>
-        <td class='cell-highlight' rowspan="2">I</td>
+      <tr>
+        <td class="ch-left cell-normal">G</td>
+        <td class="cell-highlight" rowspan="2">I</td>
         <td rowspan="2" colspan="2"></td>
       </tr>
-      <tr class='ch-left'>
-        <td></td>
+      <tr>
+        <td class="ch-left"></td>
       </tr>
     </tbody>
   </table><br>
 
-  <table class='graph-table algo-step'>
+  <table class="algo-step">
     <caption>Step 12</caption>
     <tbody>
-      <tr class='ch-up ch-left'>
-        <td class='cell-normal'>A</td>
-        <td class='cell-normal'>B</td>
-        <td class='cell-normal'>C</td>
-        <td class='cell-normal'>D</td>
+      <tr class="ch-up">
+        <td class="ch-left cell-normal">A</td>
+        <td class="cell-normal">B</td>
+        <td class="cell-normal">C</td>
+        <td class="cell-normal">D</td>
       </tr>
-      <tr class='ch-left'>
-        <td class='cell-normal'>E</td>
-        <td class='cell-normal' colspan="3">F</td>
+      <tr>
+        <td class="ch-left cell-normal">E</td>
+        <td class="cell-normal" colspan="3">F</td>
       </tr>
-      <tr class='ch-left'>
-        <td class='cell-normal'>G</td>
-        <td class='cell-normal' rowspan="2">I</td>
-        <td class='cell-normal' rowspan="2" colspan="2">J</td>
+      <tr>
+        <td class="ch-left cell-normal">G</td>
+        <td class="cell-normal" rowspan="2">I</td>
+        <td class="cell-normal" rowspan="2" colspan="2">J</td>
       </tr>
-      <tr class='ch-left'>
-        <td class='cell-normal'>H</td>
+      <tr>
+        <td class="ch-left cell-normal">H</td>
       </tr>
     </tbody>
   </table><br>
